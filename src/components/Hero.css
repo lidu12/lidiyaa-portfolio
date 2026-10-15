@@ -1,0 +1,260 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: var(--nav-height);
+  overflow: hidden;
+}
+
+/* Ambient glows */
+.hero__glow-1 {
+  width: 600px;
+  height: 600px;
+  background: var(--accent-indigo);
+  top: -200px;
+  right: -150px;
+  animation: pulse-glow 8s ease-in-out infinite;
+}
+
+.hero__glow-2 {
+  width: 400px;
+  height: 400px;
+  background: var(--accent-violet);
+  bottom: -100px;
+  left: -100px;
+  animation: pulse-glow 10s ease-in-out infinite 2s;
+}
+
+.hero__container {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 64px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+/* Content */
+.hero__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--accent-indigo);
+  margin-bottom: 24px;
+}
+
+.hero__heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+
+.hero__description {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin-bottom: 36px;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.hero__socials {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.hero__social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  transition: all var(--transition-base);
+}
+
+.hero__social:hover {
+  color: var(--accent-indigo);
+  border-color: var(--accent-indigo);
+  background: var(--glow-indigo);
+  transform: translateY(-2px);
+}
+
+/* Visual card */
+.hero__visual {
+  display: flex;
+  justify-content: center;
+}
+
+.hero__card {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.hero__card-glow {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 200px;
+  background: var(--accent-indigo);
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.hero__avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-indigo), var(--accent-violet));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 0 40px var(--glow-indigo);
+}
+
+.hero__avatar-letter {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.03em;
+}
+
+/* If you add a profile photo, use this CSS:
+   .hero__avatar {
+     background: none;
+   }
+   .hero__avatar img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     border-radius: 50%;
+   }
+   Remove .hero__avatar-letter from the JSX and add:
+   <img src="/profile.jpg" alt="Lidiya Aramde" />
+*/
+
+.hero__card-info {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hero__card-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+}
+
+.hero__card-role {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.hero__card-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Tech strip */
+.hero__tech-strip {
+  border-top: 1px solid var(--border-subtle);
+  padding: 20px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__tech-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.hero__tech-item {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  transition: color var(--transition-fast);
+}
+
+.hero__tech-item:hover {
+  color: var(--accent-indigo);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero__container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    text-align: center;
+  }
+  .hero__description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero__actions {
+    justify-content: center;
+  }
+  .hero__socials {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__visual {
+    display: none;
+  }
+  .hero__heading {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero__tech-list {
+    gap: 20px;
+  }
+}
